@@ -10,25 +10,21 @@ I can't claim I know what I'm doing yet, so watch out for fire and let me know i
 
 ## Using It
 
-Kerosine tries to avoid making assumptions, but one assumption it has is that the kerosine repo is in the same directory as cpunks-10k.
+Kerosine tries to avoid making assumptions, but one assumption it has is that kerosine and cpunks-10k are in the same directory.
 
 ```shell
 $ git clone https://github.com/jmsdnns/kerosine
 $ git clone https://github.com/tnn1t1s/cpunks-10k
 ```
 
-🙃 There is no functioning algorithm here yet, btw... Soon!
+> ![IMPORTANT]
+> Candle is behind in its support of CUDA so additional steps are required. 
 
-### Cuda 12.6
-
-As of now, Candle doesn't support the latest version of Cuda, 12.6, so we need to clone Candle and modify its Cargo.toml. This is true for both Linux and macOS, even though Macs don't use Nvidia chips, because Cargo wants the same path for modules that have the same name. So it goes.
-
-Making the modification is a sed one-liner that tells Candle to use the latest version of [cudarc](https://crates.io/crates/cudarc).
+As of now, Candle doesn't support the latest version of Cuda, 12.6. We can address this by getting Candle from Github and modifying which version of [cudarc](https://crates.io/crates/cudarc) it uses. Unfortunately, we must do this for both Linux and macOS, even though Macs don't use Nvidia chips. Fortunately, this is easy with a sed one-liner.
 
 ```shell
-$ git clone https://github.com/jmsdnns/kerosine
-$ git clone https://github.com/tnn1t1s/cpunks-10k
 $ git clone https://github.com/huggingface/candle
 $ sed -i 's/cudarc = { version = "0.12.0"/cudarc = { version = "0.12.1"/' candle/Cargo.toml
 ```
 
+At this point, Kerosine should build correctly.
