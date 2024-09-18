@@ -2,13 +2,16 @@
 name = "kerosine"
 version = "0.1.0"
 edition = "2021"
+resolver = "2"
 
 [dependencies]
-candle-core = "0.6.0"
-candle-nn = "0.6.0"
 candle-examples = "0.6.0"
 image = "0.25.2"
 
-[features]
-metal = ["candle-core/metal", "candle-nn/metal"]
-cuda = ["candle-core/cuda", "candle-nn/cuda"]
+[target.'cfg( target_os = "linux" )'.dependencies]
+candle-core = { version = "0.6.0", features = ["cuda"] }
+candle-nn = { version = "0.6.0", features = ["cuda"] }
+
+[target.'cfg( target_os = "macos" )'.dependencies]
+candle-core = { version = "0.6.0", features = ["metal"] }
+candle-nn = { version = "0.6.0", features = ["metal"] }
