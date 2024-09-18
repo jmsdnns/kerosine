@@ -17,7 +17,7 @@ $ git clone https://github.com/jmsdnns/kerosine
 $ git clone https://github.com/tnn1t1s/cpunks-10k
 ```
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Candle is behind in its support of CUDA so additional steps are required. 
 
 As of now, Candle doesn't support the latest version of Cuda, 12.6. We can address this by getting Candle from Github and modifying which version of [cudarc](https://crates.io/crates/cudarc) it uses. Unfortunately, we must do this for both Linux and macOS, even though Macs don't use Nvidia chips. Fortunately, this is easy with a sed one-liner.
