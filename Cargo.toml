@@ -5,13 +5,19 @@ edition = "2021"
 resolver = "2"
 
 [dependencies]
-candle-examples = "0.6.0"
+#candle-examples = "0.6.0"
 image = "0.25.2"
 
 [target.'cfg( target_os = "linux" )'.dependencies]
-candle-core = { version = "0.6.0", features = ["cuda"] }
-candle-nn = { version = "0.6.0", features = ["cuda"] }
+#candle-core = { version = "0.6.0", features = ["cuda"] }
+#candle-nn = { version = "0.6.0", features = ["cuda"] }
+candle-examples = { path = "../candle/candle-examples/" }
+candle-core = { path = "../candle/candle-core/", features = ["cuda"] }
+candle-nn = { path = "../candle/candle-nn/", features = ["cuda"] }
 
 [target.'cfg( target_os = "macos" )'.dependencies]
-candle-core = { version = "0.6.0", features = ["metal"] }
-candle-nn = { version = "0.6.0", features = ["metal"] }
+#candle-core = { version = "0.6.0", features = ["metal"] }
+#candle-nn = { version = "0.6.0", features = ["metal"] }
+candle-examples = { path = "../candle/candle-examples/" }
+candle-core = { path = "../candle/candle-core/", features = ["metal"] }
+candle-nn = { path = "../candle/candle-nn/", features = ["metal"] }
