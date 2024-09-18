@@ -2,7 +2,6 @@
 
 use candle_core::{Device, Result, Tensor};
 use candle_nn::encoding::one_hot;
-use image;
 use std::collections::{HashMap, HashSet};
 
 const CPUNKS_PATH: &str = "../cpunks-10k/cpunks/images/training/";
